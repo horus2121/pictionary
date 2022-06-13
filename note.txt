@@ -1,0 +1,8 @@
+1. build painting function with canvas api
+  - eraser
+  - set color options
+  - set lineWidth options
+  - probably some drawing tools like a feature to assist on properly drawing different geometry
+2. set up a random word generator
+  https://github.com/RazorSh4rk/random-word-api
+3. live chat (express?)
