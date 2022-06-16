@@ -9,10 +9,11 @@
   </head>
 
   <body>
+    <h1>PICTIONARY</h1>
 
     <div id="wordGenerator">
-      <h1 id="wordField"></h1> 
-      <button id="switchWord">Next Word</button>
+      <h2 id="wordField"></h2> 
+      <button id="skipWord">Skip</button>
     </div>
 
     <div id="container-canvas">
@@ -22,7 +23,7 @@
     <div id="menu">
       <button id="pen">Pen</button>
       <button id="eraser">Eraser</button>
-      <select id="color"">
+      <select id="color">
         <option value="#000000">Black</option>
         <option value="#FF0000">Red</option>
         <option value="#0000CC">Blue</option>
@@ -31,7 +32,7 @@
         <option value="#FFA500">Orange</option>
         <option value="#990099">Purple</option>
       </select>
-      <select id="width"">
+      <select id="width">
         <option value="2">2</option>
         <option value="4">4</option>
         <option value="6">6</option>
@@ -41,9 +42,20 @@
         <option value="14">14</option>
         <option value="16">16</option>
       </select>
+      <select id="shape">
+        <option value="circle">Circle</option>
+        <option value="triangle">Triangle</option>
+        <option value="tectangle">Tectangle</option>
+      </select>
       <button id="clear">Clear</button>
     </div>
 
+    <div id="scoreBoard">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+      <button id="restart">Restart</button>
+      <ul id="score"></ul>
+    </div>
     <script src="./canvas.js"></script>
 
   </body>
