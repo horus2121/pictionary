@@ -5,6 +5,9 @@
     <title>Pictionary</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&family=Caveat+Brush&family=Rubik+Glitch&display=swap" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
   </head>
 
@@ -12,8 +15,9 @@
     <h1>PICTIONARY</h1>
 
     <div id="wordGenerator">
+      <h2>&#11088KEYWORD:</h2>
       <h2 id="wordField"></h2> 
-      <button id="skipWord">Skip</button>
+      <button id="skipWord"><img src="https://img.icons8.com/external-thin-kawalan-studio/48/undefined/external-skip-forward-multimedia-thin-kawalan-studio.png"/></button>
     </div>
 
     <div id="container-canvas">
@@ -21,9 +25,11 @@
     </div>
 
     <div id="menu">
-      <button id="pen">Pen</button>
-      <button id="eraser">Eraser</button>
+      <button id="pen"><img src="https://img.icons8.com/material-two-tone/48/undefined/pencil-tip.png"/></button>
+      <button id="eraser"><img src="https://img.icons8.com/material-two-tone/48/undefined/eraser.png"/></button>
+      <button id="clear"><img src="https://img.icons8.com/plumpy/96/undefined/empty-trash.png"/></button>
       <select id="color">
+        <option>Color</option>
         <option value="#000000">Black</option>
         <option value="#FF0000">Red</option>
         <option value="#0000CC">Blue</option>
@@ -33,6 +39,7 @@
         <option value="#990099">Purple</option>
       </select>
       <select id="width">
+        <option>Line width</option>
         <option value="2">2</option>
         <option value="4">4</option>
         <option value="6">6</option>
@@ -43,18 +50,21 @@
         <option value="16">16</option>
       </select>
       <select id="shape">
+        <option>Draw shape</option>
         <option value="circle">Circle</option>
         <option value="triangle">Triangle</option>
         <option value="tectangle">Tectangle</option>
       </select>
-      <button id="clear">Clear</button>
     </div>
 
     <div id="scoreBoard">
-      <button id="yes">Yes</button>
-      <button id="no">No</button>
-      <button id="restart">Restart</button>
-      <ul id="score"></ul>
+      <button id="yes"><img src="https://img.icons8.com/cotton/64/undefined/facebook-like--v2.png"/></button>
+      <button id="no"><img src="https://img.icons8.com/cotton/64/undefined/thumbs-down--v4.png"/></button>
+      <button id="restart"><img src="https://img.icons8.com/doodle/96/undefined/replay--v1.png"/></button>
+      <div>
+        <ul id="scoreY"></ul>
+        <ul id="scoreN"></ul>
+      </div>
     </div>
     <script src="./canvas.js"></script>
 

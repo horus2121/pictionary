@@ -1,4 +1,5 @@
 * {
+  font-family: 'Caveat Brush', cursive;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,9 +12,21 @@ body {
 }
 
 h1 {
+  font-size: 6rem;
+  color: #2b2d42;
   position: absolute;
-  top: 8%;
-  left: 42%;
+  top: 0;
+  left: 36%;
+}
+
+h2 {
+  color: #2b2d42;
+  font-size: 1.5rem;
+}
+
+h2#wordField {
+  color: #b5838d;
+  font-size: 2.5rem;
 }
 
 #wordGenerator {
@@ -33,13 +46,41 @@ h1 {
 #menu {
   position: absolute;
   top: 68%;
-  left: 38%;
+  left: 34%;
 }
 
 #scoreBoard {
   position: absolute;
   top: 20%;
-  left: 82%;
+  left: 78%;
+}
+
+ul {
+  display: inline-block;
+  list-style: none;
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  margin-right: 1rem;
+}
+
+img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+select {
+  height: 2rem;
+  width: 5.5rem;
+  font-size: 1rem;
+  text-align: center;
+  border-color: gray;
+  background-color: transparent;
+  border-radius: 15px;
 }
 
 button:hover {

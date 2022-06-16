@@ -134,21 +134,32 @@ getWord();
 const yesButton = document.querySelector("#yes");
 const noButton = document.querySelector("#no");
 const restartButton = document.querySelector("#restart");
-const scoreList = document.querySelector("#score");
+const scoreListY = document.querySelector("#scoreY");
+const scoreListN = document.querySelector("#scoreN");
 
-function addEmoji(emoji) {
+function addEmojiY() {
   let emojiField = document.createElement("li");
 
-  emojiField.innerHTML = emoji;
-  scoreList.appendChild(emojiField);
+  emojiField.innerHTML = "&#127801";
+  scoreListY.appendChild(emojiField);
+}
+
+function addEmojiN() {
+  let emojiField = document.createElement("li");
+
+  emojiField.innerHTML = "&#128169";
+  scoreListN.appendChild(emojiField);
 }
 
 function restart() {
-  while (scoreList.lastElementChild) {
-    scoreList.removeChild(scoreList.lastElementChild);
+  while (scoreListY.lastElementChild) {
+    scoreListY.removeChild(scoreListY.lastElementChild);
+  }
+  while (scoreListN.lastElementChild) {
+    scoreListN.removeChild(scoreListN.lastElementChild);
   }
 }
 
-yesButton.addEventListener("click", () => { addEmoji("good!!") });
-noButton.addEventListener("click", () => { addEmoji("bad!!") });
+yesButton.addEventListener("click", addEmojiY);
+noButton.addEventListener("click", addEmojiN);
 restartButton.addEventListener("click", restart);
