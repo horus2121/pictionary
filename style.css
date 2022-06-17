@@ -32,7 +32,7 @@ h2#wordField {
 #wordGenerator {
   position: absolute;
   top: 20%;
-  left: 10%;
+  left: 8%;
 }
 
 #canvas {
@@ -55,9 +55,8 @@ h2#wordField {
   left: 78%;
 }
 
-ul {
-  display: inline-block;
-  list-style: none;
+#scoreContainer {
+  display: block;
   margin-top: 1rem;
   font-size: 2rem;
 }
@@ -89,4 +88,124 @@ button:hover {
 
 select:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1050px) {
+  h1 {
+    font-size: 4rem;
+    top: 3%;
+    left: 31%;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h2#wordField {
+    font-size: 2rem;
+  }
+
+  #wordGenerator {
+    top: 20%;
+    left: 4%;
+  }
+
+  #canvas {
+    top: 15%;
+    left: 25%;
+  }
+
+  #menu {
+    top: 67%;
+    left: 24%;
+  }
+
+  img {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  select {
+    height: 2rem;
+    width: 5rem;
+    font-size: 0.9rem;
+  }
+
+  #scoreBoard {
+    top: 20%;
+    left: 78%;
+  }
+
+  #scoreContainer {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+  }
+
+  button {
+    margin-right: 0.5rem;
+  }
+
+}
+
+@media only screen and (max-width: 580px) {
+  h1 {
+    font-size: 2.5rem;
+    top: 3%;
+    left: 26%;
+  }
+
+  h2 {
+    font-size: 0.5rem;
+  }
+
+  h2#wordField {
+    font-size: 1.5rem;
+  }
+
+  #wordGenerator {
+    top: 13%;
+    left: 15%;
+  }
+
+  #canvas {
+    height: 50%;
+    width: 80%;
+    top: 26%;
+    left: 10%;
+  }
+
+  #menu {
+    top: 78%;
+    left: 13%;
+  }
+
+  img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  select {
+    height: 1.5rem;
+    width: 3.8rem;
+    font-size: 0.6rem;
+  }
+
+  #scoreBoard {
+    top: 13%;
+    left: 60%;
+  }
+
+  #scoreContainer {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    margin-right: 0.2rem;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+
 }

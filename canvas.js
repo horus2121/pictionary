@@ -41,16 +41,27 @@ function draw(e) {
   ctx.moveTo(e.clientX - ctx.canvas.offsetLeft, e.clientY - ctx.canvas.offsetTop);
 }
 
+penCursor = "url('https://img.icons8.com/ios-glyphs/30/undefined/quill-pen.png') 0 30, auto"
 function pen() {
   ctx.strokeStyle = "black";
+  canvas.style.cursor = penCursor;
+  eraserOn = false;
 }
 
+eraserOn = false;
 function eraser() {
+  const eraserCursor = "url('https://img.icons8.com/metro/26/undefined/eraser.png') 0 26, auto"
   ctx.strokeStyle = "white";
+  canvas.style.cursor = eraserCursor;
+  eraserOn = true;
 }
 
 function switchColor() {
-  ctx.strokeStyle = switchColorButton.value;
+  if (eraserOn) {
+    ctx.strokeStyle = "white";
+  } else {
+    ctx.strokeStyle = switchColorButton.value;
+  }
 }
 
 function changeWidth() {
@@ -92,8 +103,8 @@ canvas.addEventListener("mouseup", endingPoint);
 canvas.addEventListener("mousemove", draw);
 
 // window.addEventListener("resize", () => {
-//   canvas.height = window.innerHeight / 2;
-//   canvas.width = window.innerwidth / 2;
+  // canvas.height = window.innerHeight / 2;
+  // canvas.width = window.innerwidth / 2;
 // })
 
 // Random word generator
@@ -134,32 +145,34 @@ getWord();
 const yesButton = document.querySelector("#yes");
 const noButton = document.querySelector("#no");
 const restartButton = document.querySelector("#restart");
-const scoreListY = document.querySelector("#scoreY");
-const scoreListN = document.querySelector("#scoreN");
+const numOfRose = document.querySelector("#numOfRose");
+const numOfPoo = document.querySelector("#numOfPoo");
+const plusSign = document.querySelectorAll("#plusSign")
+plusSign[0].style.display = "none";
+plusSign[1].style.display = "none";
 
-function addEmojiY() {
-  let emojiField = document.createElement("li");
+function addScore(roseOrPoo) {
+  let num = roseOrPoo.innerText;
 
-  emojiField.innerHTML = "&#127801";
-  scoreListY.appendChild(emojiField);
-}
+  if (num == 0) {
+    if (roseOrPoo.id == "numOfRose") {
+    plusSign[0].style.display = "inline";
+  } else {
+    plusSign[1].style.display = "inline";
+    }
+  } 
 
-function addEmojiN() {
-  let emojiField = document.createElement("li");
-
-  emojiField.innerHTML = "&#128169";
-  scoreListN.appendChild(emojiField);
+  num++;
+  roseOrPoo.innerText = num;
 }
 
 function restart() {
-  while (scoreListY.lastElementChild) {
-    scoreListY.removeChild(scoreListY.lastElementChild);
-  }
-  while (scoreListN.lastElementChild) {
-    scoreListN.removeChild(scoreListN.lastElementChild);
-  }
+  numOfRose.innerText = 0;
+  numOfPoo.innerText = 0;
+  plusSign[0].style.display = "none";
+  plusSign[1].style.display = "none";
 }
 
-yesButton.addEventListener("click", addEmojiY);
-noButton.addEventListener("click", addEmojiN);
+yesButton.addEventListener("click", () => { addScore(numOfRose) });
+noButton.addEventListener("click", () => { addScore(numOfPoo) });
 restartButton.addEventListener("click", restart);
