@@ -11,8 +11,17 @@ const switchColorButton = document.querySelector("#color");
 const changeWidthButton = document.querySelector("#width");
 const drawShapeButton = document.querySelector("#shape");
 const clearButton = document.querySelector("#clear");
+const penCursor = "url('https://img.icons8.com/ios-glyphs/30/undefined/quill-pen.png') 0 30, auto"
+const eraserCursor = "url('https://img.icons8.com/metro/26/undefined/eraser.png') 0 26, auto"
 
 let painting = false;
+let eraserOn = false;
+
+ctx.lineCap = "round";
+ctx.strokeStyle = "black";
+ctx.lineWidth = 2;
+canvas.style.cursor = penCursor;
+changeWidthButton.style.textDecorationThickness = changeWidthButton.value;
 
 function startingPoint(e) {
   painting = true;
@@ -26,14 +35,7 @@ function endingPoint() {
 
 function draw(e) {
   if (!painting) return;
-
-  penButton.addEventListener("click", pen);
-  eraserButton.addEventListener("click", eraser);
-  switchColorButton.addEventListener("change", switchColor);
-  changeWidthButton.addEventListener("change", changeWidth);
-  clearButton.addEventListener("click", clear);
-
-  ctx.lineCap = "round";
+  tool();
 
   ctx.lineTo(e.clientX - ctx.canvas.offsetLeft, e.clientY - ctx.canvas.offsetTop);
   ctx.stroke();
@@ -41,16 +43,22 @@ function draw(e) {
   ctx.moveTo(e.clientX - ctx.canvas.offsetLeft, e.clientY - ctx.canvas.offsetTop);
 }
 
-penCursor = "url('https://img.icons8.com/ios-glyphs/30/undefined/quill-pen.png') 0 30, auto"
+function tool() {
+  penButton.addEventListener("click", pen);
+  eraserButton.addEventListener("click", eraser);
+  switchColorButton.addEventListener("change", switchColor);
+  changeWidthButton.addEventListener("change", changeWidth);
+  clearButton.addEventListener("click", clear);
+}
+tool();
+
 function pen() {
   ctx.strokeStyle = "black";
   canvas.style.cursor = penCursor;
   eraserOn = false;
 }
 
-eraserOn = false;
 function eraser() {
-  const eraserCursor = "url('https://img.icons8.com/metro/26/undefined/eraser.png') 0 26, auto"
   ctx.strokeStyle = "white";
   canvas.style.cursor = eraserCursor;
   eraserOn = true;
@@ -61,6 +69,12 @@ function switchColor() {
     ctx.strokeStyle = "white";
   } else {
     ctx.strokeStyle = switchColorButton.value;
+    console.log(switchColorButton.value)
+    if (switchColorButton.value !== "#000000") {
+    switchColorButton.style.backgroundColor = switchColorButton.value;
+} else {
+    switchColorButton.style.backgroundColor = "#FFFFFF";
+    }
   }
 }
 
@@ -103,8 +117,8 @@ canvas.addEventListener("mouseup", endingPoint);
 canvas.addEventListener("mousemove", draw);
 
 // window.addEventListener("resize", () => {
-  // canvas.height = window.innerHeight / 2;
-  // canvas.width = window.innerwidth / 2;
+//   canvas.height = window.innerHeight / 2;
+//   canvas.width = window.innerwidth / 2;
 // })
 
 // Random word generator
@@ -138,6 +152,7 @@ async function getWord() {
 }
 
 skipWordButton.addEventListener("click", getWord);
+skipWordButton.addEventListener("click", clear);
 
 getWord();
 

@@ -82,6 +82,10 @@ select {
   border-radius: 15px;
 }
 
+select#width {
+  text-decoration-line: underline;
+}
+
 button:hover {
   cursor: pointer;
 }
